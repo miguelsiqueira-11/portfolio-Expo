@@ -1,18 +1,47 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
-
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-SplashScreen.preventAutoHideAsync();
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import { PessoaProvider } from '../context/PessoaContext';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <PessoaProvider>
+      <Tabs screenOptions={{ headerShown: false, tabBarActiveTintColor: '#6C63FF' }}>
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'Home',
+            tabBarIcon: ({ color, size }) => <Ionicons name="home" color={color as string} size={size} />,
+          }}
+        />
+        <Tabs.Screen
+          name="sobre"
+          options={{
+            title: 'Sobre',
+            tabBarIcon: ({ color, size }) => <Ionicons name="information-circle" color={color as string} size={size} />,
+          }}
+        />
+        <Tabs.Screen
+          name="academica"
+          options={{
+            title: 'Acadêmica',
+            tabBarIcon: ({ color, size }) => <Ionicons name="school" color={color as string} size={size} />,
+          }}
+        />
+        <Tabs.Screen
+          name="profissional"
+          options={{
+            title: 'Profissional',
+            tabBarIcon: ({ color, size }) => <Ionicons name="briefcase" color={color as string} size={size} />,
+          }}
+        />
+        <Tabs.Screen
+          name="projetos"
+          options={{
+            title: 'Projetos',
+            tabBarIcon: ({ color, size }) => <Ionicons name="code-slash" color={color as string} size={size} />,
+          }}
+        />
+      </Tabs>
+    </PessoaProvider>
   );
 }
