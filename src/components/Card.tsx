@@ -8,7 +8,8 @@ export default function Card({ children }: { children: ReactNode }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: cores.card, borderRadius: 14, padding: 16, gap: 4,
-    elevation: 2, shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 6, shadowOffset: { width: 0, height: 2 },
+    backgroundColor: cores.card, borderRadius: 16, padding: 16, gap: 4,
+    borderLeftWidth: 4, borderLeftColor: cores.primaria,
+    elevation: 3, shadowColor: '#000', shadowOpacity: 0.08, shadowRadius: 8, shadowOffset: { width: 0, height: 3 },
   },
 });

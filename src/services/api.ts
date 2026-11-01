@@ -1,4 +1,4 @@
-const BASE = process.env.EXPO_PUBLIC_API_URL;
+const BASE = process.env.EXPO_PUBLIC_API_URL ?? 'https://api-curriculo-rosy.vercel.app';
 
 export async function getJson<T>(path: string): Promise<T> {
   const url = `${BASE}${path}`;

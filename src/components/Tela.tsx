@@ -1,13 +1,14 @@
 import { ReactNode } from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { cores } from '../constants/theme';
+import { cores, fontes } from '../constants/theme';
 import { usePessoa } from '../context/PessoaContext';
 import { Pessoa } from '../types';
 
-type Props = { titulo?: string; children: (pessoa: Pessoa) => ReactNode };
+type Props = { titulo?: string; cheio?: boolean; children: (pessoa: Pessoa) => ReactNode };
 
-export default function Tela({ titulo, children }: Props) {
+export default function Tela({ titulo, cheio, children }: Props) {
   const { pessoa, carregando, erro, recarregar } = usePessoa();
 
   if (carregando) {
@@ -30,21 +31,31 @@ export default function Tela({ titulo, children }: Props) {
   }
 
   return (
-    <SafeAreaView style={styles.safe}>
-      <ScrollView contentContainerStyle={styles.conteudo}>
-        {titulo ? <Text style={styles.titulo}>{titulo}</Text> : null}
+    <View style={styles.safe}>
+      {titulo ? (
+        <LinearGradient colors={[cores.primaria, cores.secundaria]} style={styles.cabecalho}>
+          <SafeAreaView edges={['top']}>
+            <Text style={styles.titulo}>{titulo}</Text>
+          </SafeAreaView>
+        </LinearGradient>
+      ) : null}
+      <ScrollView
+        contentContainerStyle={cheio ? undefined : styles.conteudo}
+        showsVerticalScrollIndicator={false}
+      >
         {children(pessoa)}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: cores.fundo },
-  conteudo: { padding: 20, gap: 12 },
-  titulo: { fontSize: 28, fontWeight: 'bold', color: cores.texto, marginBottom: 4 },
+  cabecalho: { paddingHorizontal: 20, paddingBottom: 20, paddingTop: 12, borderBottomLeftRadius: 24, borderBottomRightRadius: 24 },
+  titulo: { fontSize: 24, fontFamily: fontes.negrito, color: '#fff' },
+  conteudo: { padding: 20, gap: 14 },
   centro: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: cores.fundo, padding: 20 },
-  erro: { fontSize: 16, color: cores.texto, marginBottom: 12, textAlign: 'center' },
-  botao: { backgroundColor: cores.primaria, paddingHorizontal: 20, paddingVertical: 12, borderRadius: 10 },
-  botaoTexto: { color: '#fff', fontWeight: 'bold' },
+  erro: { fontSize: 16, fontFamily: fontes.regular, color: cores.texto, marginBottom: 12, textAlign: 'center' },
+  botao: { backgroundColor: cores.primaria, paddingHorizontal: 20, paddingVertical: 12, borderRadius: 12 },
+  botaoTexto: { color: '#fff', fontFamily: fontes.semi },
 });

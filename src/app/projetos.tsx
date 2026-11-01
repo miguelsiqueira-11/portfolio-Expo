@@ -1,5 +1,5 @@
 import { Linking, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { cores } from '../constants/theme';
+import { cores, fontes } from '../constants/theme';
 import Card from '../components/Card';
 import Tela from '../components/Tela';
 
@@ -13,13 +13,13 @@ export default function Projetos() {
               <Text style={styles.titulo}>{pr.nome}{pr.ano ? ` · ${pr.ano}` : ''}</Text>
               {pr.descricao ? <Text style={styles.texto}>{pr.descricao}</Text> : null}
               {pr.link_repositorio ? (
-                <TouchableOpacity onPress={() => Linking.openURL(pr.link_repositorio!)}>
-                  <Text style={styles.link}>Ver repositório</Text>
+                <TouchableOpacity style={styles.botao} onPress={() => Linking.openURL(pr.link_repositorio!)}>
+                  <Text style={styles.botaoTexto}>Ver repositório</Text>
                 </TouchableOpacity>
               ) : null}
               {pr.link_demo ? (
-                <TouchableOpacity onPress={() => Linking.openURL(pr.link_demo!)}>
-                  <Text style={styles.link}>Ver demo</Text>
+                <TouchableOpacity style={styles.botao} onPress={() => Linking.openURL(pr.link_demo!)}>
+                  <Text style={styles.botaoTexto}>Ver demo</Text>
                 </TouchableOpacity>
               ) : null}
             </Card>
@@ -31,7 +31,8 @@ export default function Projetos() {
 }
 
 const styles = StyleSheet.create({
-  titulo: { fontSize: 18, fontWeight: 'bold', color: cores.texto },
-  texto: { color: cores.texto },
-  link: { color: cores.primaria, fontWeight: '600', marginTop: 6 },
+  titulo: { fontSize: 17, fontFamily: fontes.negrito, color: cores.texto },
+  texto: { fontFamily: fontes.regular, color: cores.texto },
+  botao: { borderWidth: 1.5, borderColor: cores.primaria, borderRadius: 12, paddingVertical: 8, alignItems: 'center', marginTop: 8 },
+  botaoTexto: { color: cores.primaria, fontFamily: fontes.semi },
 });

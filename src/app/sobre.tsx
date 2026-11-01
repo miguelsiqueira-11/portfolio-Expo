@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { cores } from '../constants/theme';
+import { cores, fontes } from '../constants/theme';
 import Card from '../components/Card';
 import Tela from '../components/Tela';
 
 const TECNOLOGIAS = [
   'React Native', 'Expo', 'Expo Router', 'TypeScript', 'EAS Update',
+  'Expo Linear Gradient', 'Google Fonts (Poppins)',
   'API REST (Express + PostgreSQL no Vercel)',
 ];
 
@@ -44,9 +45,9 @@ export default function Sobre() {
 }
 
 const styles = StyleSheet.create({
-  texto: { fontSize: 15, color: cores.texto },
-  secao: { fontSize: 18, fontWeight: 'bold', color: cores.texto, marginTop: 8 },
+  texto: { fontSize: 15, fontFamily: fontes.regular, color: cores.texto },
+  secao: { fontSize: 18, fontFamily: fontes.negrito, color: cores.texto, marginTop: 6 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  chip: { backgroundColor: cores.primaria, borderRadius: 20, paddingHorizontal: 12, paddingVertical: 6 },
-  chipTexto: { color: '#fff', fontSize: 13 },
+  chip: { backgroundColor: cores.primaria, borderRadius: 20, paddingHorizontal: 14, paddingVertical: 7 },
+  chipTexto: { color: '#fff', fontSize: 13, fontFamily: fontes.semi },
 });

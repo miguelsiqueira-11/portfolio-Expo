@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from 'react-native';
-import { cores } from '../constants/theme';
+import { cores, fontes } from '../constants/theme';
 import Card from '../components/Card';
 import Tela from '../components/Tela';
 import { formatarData } from '../utils/formatar';
@@ -24,8 +24,8 @@ export default function Profissional() {
 }
 
 const styles = StyleSheet.create({
-  titulo: { fontSize: 18, fontWeight: 'bold', color: cores.texto },
-  sub: { fontSize: 15, color: cores.primaria },
-  suave: { color: cores.suave },
-  texto: { color: cores.texto, marginTop: 4 },
+  titulo: { fontSize: 17, fontFamily: fontes.negrito, color: cores.texto },
+  sub: { fontSize: 14, fontFamily: fontes.semi, color: cores.primaria },
+  suave: { fontSize: 13, fontFamily: fontes.regular, color: cores.suave },
+  texto: { fontFamily: fontes.regular, color: cores.texto, marginTop: 4 },
 });
