@@ -18,8 +18,6 @@ https://api-curriculo-rosy.vercel.app
 
 Rota usada pelo app: `GET /pessoas/1/completo`
 
-## Funcionalidade extra
-**Exportação do currículo em PDF**: o app gera um PDF com os dados vindos da API (`expo-print`) e abre o menu de compartilhamento do celular (`expo-sharing`).
 
 ## Tecnologias
 - React Native
