@@ -1,57 +1,43 @@
-# Welcome to your Expo app 👋
+# Portfólio / Currículo — React Native + Expo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+App mobile de currículo e portfólio de Luiz Miguel Siqueira de Mendonça, desenvolvido para a disciplina de Programação para Dispositivos Móveis.
 
-## Get started
+## Telas
+- **Home**: foto, nome, cargo, resumo e atalhos (GitHub, e-mail e PDF)
+- **Sobre**: resumo, habilidades, tecnologias usadas e a funcionalidade extra
+- **Experiência Acadêmica**
+- **Experiência Profissional**
+- **Projetos**: com link para o repositório de cada projeto
 
-1. Install dependencies
+A navegação usa o **Expo Router** (abas).
 
-   ```bash
-   npm install
-   ```
+## Back-end
+Todos os dados (pessoa, formações, experiências, projetos e habilidades) vêm de uma API REST própria feita com Express + PostgreSQL (Neon), publicada no Vercel:
 
-2. Start the app
+https://api-curriculo-rosy.vercel.app
 
-   ```bash
-   npx expo start
-   ```
+Rota usada pelo app: `GET /pessoas/1/completo`
 
-In the output, you'll find options to open the app in a
+## Funcionalidade extra
+**Exportação do currículo em PDF**: o app gera um PDF com os dados vindos da API (`expo-print`) e abre o menu de compartilhamento do celular (`expo-sharing`).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Tecnologias
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+- EAS Update
+- expo-print e expo-sharing
+- expo-linear-gradient
+- Google Fonts (Poppins)
 
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Como rodar
 
-## Get a fresh project
+npm install
+npx expo start
 
-When you're ready, run:
+Escaneie o QR code com o app Expo Go.
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-"# portfolio-Expo" 
+## Links
+- App publicado no Expo: https://expo.dev/preview/update?message=Visual%2C+PDF+e+corre%C3%A7%C3%A3o+dos+links&updateRuntimeVersion=1.0.0&createdAt=2026-11-02T00%3A33%3A17.107Z&slug=exp&projectId=e90a1598-aea5-4ca6-9690-c4eccdac1c7f&group=eed3bab3-4d6f-4cc3-b794-edde831f6c72
+- API: https://api-curriculo-rosy.vercel.app
